@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyvjhq6tdvv85"]
+
+[ext_resource type="Script" uid="uid://brhy5tifos4dj" path="res://character_body_2d.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://37wwod6d8ri" path="res://node_2d.gd" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://dqfvr387go78l" path="res://platform_spawner.gd" id="3_kne1u"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
+script = ExtResource("1_xhfnw")
+
+[node name="Ground" type="Node2D" parent="."]
+script = ExtResource("2_kpjcp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+
+[node name="PlatformSpawner" type="Node2D" parent="."]
+script = ExtResource("3_kne1u")
