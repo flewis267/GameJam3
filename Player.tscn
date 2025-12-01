@@ -22,4 +22,4 @@ script = ExtResource("2_kpjcp")
 [node name="PlatformSpawner" type="Node2D" parent="."]
 script = ExtResource("3_kne1u")
 
-[node name="Background" parent="." instance=ExtResource("4_e80uo")]
+[node name="Backgrounds" parent="." instance=ExtResource("4_e80uo")]
