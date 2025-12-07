@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbw15dqum7dsx"]
+
+[ext_resource type="Script" uid="uid://ihj76347n3fo" path="res://player.gd" id="1_h7pfk"]
+[ext_resource type="Script" uid="uid://csy52a0bc0ep3" path="res://game.gd" id="1_ww3rf"]
+[ext_resource type="Script" uid="uid://bc26eva6l2hjs" path="res://ground.gd" id="2_nxxrv"]
+[ext_resource type="Script" uid="uid://bggbxvngw237y" path="res://obstacle_spawner.gd" id="3_2uwcf"]
+[ext_resource type="PackedScene" uid="uid://cb6v2o3rb4gju" path="res://obstacle.tscn" id="5_t0tp6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbjf"]
+size = Vector2(21, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7pfk"]
+size = Vector2(2506.5, 46)
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_ww3rf")
+
+[node name="Player" type="CharacterBody2D" parent="Game"]
+position = Vector2(195, 440)
+script = ExtResource("1_h7pfk")
+
+[node name="ColorRect" type="ColorRect" parent="Game/Player"]
+offset_right = 21.0
+offset_bottom = 75.0
+color = Color(0.75100327, 0, 0.21163437, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player"]
+position = Vector2(10, 37)
+shape = SubResource("RectangleShape2D_wrbjf")
+
+[node name="Ground" type="StaticBody2D" parent="Game"]
+position = Vector2(0, 600)
+script = ExtResource("2_nxxrv")
+
+[node name="ColorRect" type="ColorRect" parent="Game/Ground"]
+offset_right = 2505.0
+offset_bottom = 46.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ground"]
+position = Vector2(1251.75, 23)
+shape = SubResource("RectangleShape2D_h7pfk")
+
+[node name="ObstacleSpawner" type="Node2D" parent="Game"]
+script = ExtResource("3_2uwcf")
+obstacle_scene = ExtResource("5_t0tp6")
+
+[node name="UI" type="CanvasLayer" parent="Game"]
+
+[node name="ScoreLabel" type="Label" parent="Game/UI"]
+offset_left = 435.0
+offset_right = 744.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GameOverPanel" type="Panel" parent="Game/UI"]
+offset_left = 401.0
+offset_top = 323.0
+offset_right = 767.0
+offset_bottom = 363.0
+
+[node name="GameOverLabel" type="Label" parent="Game/UI/GameOverPanel"]
+layout_mode = 0
+offset_right = 366.0
+offset_bottom = 37.0
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="RestartButton" type="Button" parent="Game/UI/GameOverPanel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 63.0
+offset_right = 319.0
+offset_bottom = 99.0
+text = "RESTART"

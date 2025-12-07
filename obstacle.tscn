@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6v2o3rb4gju"]
+
+[ext_resource type="Script" uid="uid://dw4fg5yqwheb8" path="res://obstacle.gd" id="1_butuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tdt"]
+size = Vector2(20, 19.5)
+
+[node name="ObstacleScene" type="Area2D"]
+script = ExtResource("1_butuk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.9177146, 0.47800124, 0.31020132, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78tdt")
