@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyvjhq6tdvv85"]
+[gd_scene load_steps=5 format=3 uid="uid://cyvjhq6tdvv85"]
 
 [ext_resource type="Script" uid="uid://brhy5tifos4dj" path="res://character_body_2d.gd" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://37wwod6d8ri" path="res://node_2d.gd" id="2_kpjcp"]
 [ext_resource type="Script" uid="uid://dqfvr387go78l" path="res://platform_spawner.gd" id="3_kne1u"]
+[ext_resource type="PackedScene" uid="uid://225mvu1rwnhm" path="res://parallax_background.tscn" id="4_e80uo"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,3 +21,5 @@ script = ExtResource("2_kpjcp")
 
 [node name="PlatformSpawner" type="Node2D" parent="."]
 script = ExtResource("3_kne1u")
+
+[node name="Backgrounds" parent="." instance=ExtResource("4_e80uo")]
