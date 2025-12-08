@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb6v2o3rb4gju"]
+[gd_scene load_steps=4 format=3 uid="uid://cb6v2o3rb4gju"]
 
 [ext_resource type="Script" uid="uid://dw4fg5yqwheb8" path="res://obstacle.gd" id="1_butuk"]
+[ext_resource type="Texture2D" uid="uid://cxnoc21jwqc4b" path="res://Sprites/Spike2.png" id="2_aubd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78tdt"]
 size = Vector2(20, 19.5)
@@ -9,6 +10,7 @@ size = Vector2(20, 19.5)
 script = ExtResource("1_butuk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
@@ -18,3 +20,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_78tdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_aubd6")
